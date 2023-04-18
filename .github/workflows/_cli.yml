@@ -1,0 +1,23 @@
+name: cli
+
+on:
+  workflow_call:
+    inputs:
+      args:
+        required: true
+        type: string
+    secrets:
+      QIITA_ACCESS_TOKEN:
+        required: true
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v4
+        with:
+          go-version-file: go.mod
+      - run: go run . ${{ inputs.args }}
+        env:
+          QIITA_ACCESS_TOKEN: ${{ secrets.QIITA_ACCESS_TOKEN }}

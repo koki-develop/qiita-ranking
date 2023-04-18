@@ -4,7 +4,7 @@ import (
 	"bytes"
 	_ "embed"
 	"fmt"
-	"text/template"
+	"html/template"
 
 	"github.com/koki-develop/qiita-ranking/internal/config"
 	"github.com/koki-develop/qiita-ranking/internal/qiita"

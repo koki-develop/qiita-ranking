@@ -34,6 +34,18 @@ func (items Items) Sort() {
 	})
 }
 
+func (items Items) Filter() Items {
+	var rtn Items
+
+	for _, item := range items {
+		if item.LikesCount > 0 {
+			rtn = append(rtn, item)
+		}
+	}
+
+	return rtn
+}
+
 type Tag struct {
 	Name string `json:"name"`
 }

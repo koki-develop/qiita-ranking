@@ -44,6 +44,7 @@ func (b *Builder) Build(params *BuildParameters) ([]byte, error) {
 	}
 
 	buf := new(bytes.Buffer)
+	params.Items = params.Items.Filter()
 	params.Items.Sort()
 	if err := tpl.Execute(buf, params); err != nil {
 		return nil, err

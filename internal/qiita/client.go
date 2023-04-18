@@ -73,6 +73,8 @@ func (cl *Client) doRequest(req *http.Request, dst interface{}) error {
 		return errors.New(s.String())
 	}
 
+	fmt.Printf("remaining: %s\n", resp.Header.Get("rate-remaining"))
+
 	if dst != nil {
 		if err := json.NewDecoder(resp.Body).Decode(dst); err != nil {
 			return err

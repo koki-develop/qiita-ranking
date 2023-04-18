@@ -10,6 +10,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// デイリーいいね数ランキング
+// https://qiita.com/koki_develop/items/fa223e1fa0ab057a54bc
 var dailyCmd = &cobra.Command{
 	Use: "daily",
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -41,7 +43,14 @@ var dailyCmd = &cobra.Command{
 			return err
 		}
 
-		fmt.Print(string(body))
+		params := &qiita.UpdateItemParameters{
+			Title: "Qiita デイリーいいね数ランキング【自動更新】",
+			Tags:  qiita.Tags{{Name: "Qiita"}, {Name: "いいね"}, {Name: "lgtm"}, {Name: "ランキング"}},
+			Body:  string(body),
+		}
+		if err := cl.UpdateItem(cfg.Likes.Daily.ItemID, params); err != nil {
+			return err
+		}
 		return nil
 	},
 }

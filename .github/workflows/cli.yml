@@ -3,20 +3,80 @@ name: likes weekly
 on:
   workflow_dispatch:
   schedule:
+    - cron: "0 0 * * *" # 毎日 09:00
     - cron: "0 3 * * *" # 毎日 12:00
-    - cron: "0 15 * * *" # 毎日 00:00
 
 jobs:
-  daily:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 15 * * *' }}
+  likes_daily:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 0 * * *' }}
     uses: ./.github/workflows/_cli.yml
     secrets: inherit
     with:
       args: likes daily
 
-  weekly:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 15 * * *' }}
+  likes_daily_tag:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 3 * * *' }}
+    uses: ./.github/workflows/_cli.yml
+    secrets: inherit
+    strategy:
+      matrix:
+        tag:
+          - Android
+          - AWS
+          - 初心者
+          - Docker
+          - Git
+          - Go
+          - iOS
+          - Java
+          - JavaScript
+          - Linux
+          - Node.js
+          - PHP
+          - Python
+          - Rails
+          - React
+          - Ruby
+          - Swift
+          - TypeScript
+          - Vim
+          - Vue.js
+    with:
+      args: likes daily --tag ${{ matrix.tag }}
+
+  likes_weekly:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 0 * * *' }}
     uses: ./.github/workflows/_cli.yml
     secrets: inherit
     with:
       args: likes weekly
+
+  likes_weekly_tag:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 3 * * *' }}
+    uses: ./.github/workflows/_cli.yml
+    secrets: inherit
+    strategy:
+      matrix:
+        tag:
+          - Android
+          - AWS
+          - 初心者
+          - Docker
+          - Git
+          - Go
+          - iOS
+          - Java
+          - JavaScript
+          - Linux
+          - Node.js
+          - PHP
+          - Python
+          - Rails
+          - React
+          - Ruby
+          - Swift
+          - TypeScript
+          - Vim
+          - Vue.js
+    with:
+      args: likes weekly --tag ${{ matrix.tag }}

@@ -1,6 +1,9 @@
 package qiita
 
-import "time"
+import (
+	"sort"
+	"time"
+)
 
 type User struct {
 	ID string `json:"id"`
@@ -18,6 +21,18 @@ type Item struct {
 }
 
 type Items []*Item
+
+func (items Items) Sort() {
+	sort.Slice(items, func(i, j int) bool {
+		if items[i].LikesCount != items[j].LikesCount {
+			return items[i].LikesCount > items[j].LikesCount
+		}
+		if items[i].StocksCount != items[j].StocksCount {
+			return items[i].StocksCount > items[j].StocksCount
+		}
+		return items[i].CreatedAt.After(items[j].CreatedAt)
+	})
+}
 
 type Tag struct {
 	Name string `json:"name"`

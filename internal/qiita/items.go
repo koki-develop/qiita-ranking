@@ -23,3 +23,21 @@ func (cl *Client) ListItems(p *ListItemsParameters) (Items, error) {
 
 	return items, nil
 }
+
+func (cl *Client) ListItemsWithPagination(query string) (Items, error) {
+	var rtn Items
+
+	for i := 0; i < 100; i++ {
+		items, err := cl.ListItems(&ListItemsParameters{Query: query, Page: i + 1, PerPage: 100})
+		if err != nil {
+			return nil, err
+		}
+		rtn = append(rtn, items...)
+
+		if len(items) < 100 {
+			break
+		}
+	}
+
+	return rtn, nil
+}

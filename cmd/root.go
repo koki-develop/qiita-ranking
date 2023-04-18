@@ -17,7 +17,6 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.AddCommand(
-		dailyCmd,
-	)
+	rootCmd.AddCommand(likesCmd)
+	likesCmd.AddCommand(likesDailyCmd)
 }

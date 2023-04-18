@@ -10,9 +10,13 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var likesCmd = &cobra.Command{
+	Use: "likes",
+}
+
 // デイリーいいね数ランキング
 // https://qiita.com/koki_develop/items/fa223e1fa0ab057a54bc
-var dailyCmd = &cobra.Command{
+var likesDailyCmd = &cobra.Command{
 	Use: "daily",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		cfg, err := config.Load()

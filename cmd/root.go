@@ -6,6 +6,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var (
+	flagTag string
+)
+
 var rootCmd = &cobra.Command{
 	Use: "cli",
 }
@@ -22,4 +26,8 @@ func init() {
 		likesDailyCmd,
 		likesWeeklyCmd,
 	)
+
+	for _, cmd := range []*cobra.Command{likesDailyCmd, likesWeeklyCmd} {
+		cmd.Flags().StringVar(&flagTag, "tag", "", "")
+	}
 }

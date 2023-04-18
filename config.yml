@@ -1,0 +1,88 @@
+likes:
+  daily:
+    item_id: fa223e1fa0ab057a54bc # https://qiita.com/items/fa223e1fa0ab057a54bc
+  daily_by_tag:
+    - item_id: 9c6bf21a9880e242a0d6 # https://qiita.com/items/9c6bf21a9880e242a0d6
+      tag: Android
+    - item_id: 8c4aeec4fc98e4b1ba0e # https://qiita.com/items/8c4aeec4fc98e4b1ba0e
+      tag: AWS
+    - item_id: 4107350b0914837836af # https://qiita.com/items/4107350b0914837836af
+      tag: 初心者
+    - item_id: 70aa655b580ed4f91756 # https://qiita.com/items/70aa655b580ed4f91756
+      tag: Docker
+    - item_id: 36cfb2318aabe8b3f8df # https://qiita.com/items/36cfb2318aabe8b3f8df
+      tag: Git
+    - item_id: 16809f8444e0329bed8a # https://qiita.com/items/16809f8444e0329bed8a
+      tag: Go
+    - item_id: da7fabcf41ed103528ae # https://qiita.com/items/da7fabcf41ed103528ae
+      tag: iOS
+    - item_id: 9003b8beb47a46292028 # https://qiita.com/items/9003b8beb47a46292028
+      tag: Java
+    - item_id: 31e7365a838b890f7cc3 # https://qiita.com/items/31e7365a838b890f7cc3
+      tag: JavaScript
+    - item_id: 7bcae94b268bff253eef # https://qiita.com/items/7bcae94b268bff253eef
+      tag: Linux
+    - item_id: 17556a2356938fdf489c # https://qiita.com/items/17556a2356938fdf489c
+      tag: Node.js
+    - item_id: 42476b629e2d655d9803 # https://qiita.com/items/42476b629e2d655d9803
+      tag: PHP
+    - item_id: 45e8c5b0017008c62fac # https://qiita.com/items/45e8c5b0017008c62fac
+      tag: Python
+    - item_id: 6835d21664b6e36a1efa # https://qiita.com/items/6835d21664b6e36a1efa
+      tag: Rails
+    - item_id: d17e403386f316d0d96e # https://qiita.com/items/d17e403386f316d0d96e
+      tag: React
+    - item_id: effb08232a286c91b814 # https://qiita.com/items/effb08232a286c91b814
+      tag: Ruby
+    - item_id: 4b45f7a2308597b362e6 # https://qiita.com/items/4b45f7a2308597b362e6
+      tag: Swift
+    - item_id: 3442ef41f83064dafb64 # https://qiita.com/items/3442ef41f83064dafb64
+      tag: TypeScript
+    - item_id: cb67a3dd7a37eee8f8d9 # https://qiita.com/items/cb67a3dd7a37eee8f8d9
+      tag: Vim
+    - item_id: a0d7b0334c58e658c7a0 # https://qiita.com/items/a0d7b0334c58e658c7a0
+      tag: Vue.js
+
+  weekly:
+    item_id: b6cfc81906990b3a3e72 # https://qiita.com/items/b6cfc81906990b3a3e72
+  weekly_by_tag:
+    - item_id: 8b3af051428d746f26c5 # https://qiita.com/items/8b3af051428d746f26c5
+      tag: Android
+    - item_id: e24b6279326a462d456c # https://qiita.com/items/e24b6279326a462d456c
+      tag: AWS
+    - item_id: 402899ec543aff109505 # https://qiita.com/items/402899ec543aff109505
+      tag: 初心者
+    - item_id: ae11fca7d2eba445b037 # https://qiita.com/items/ae11fca7d2eba445b037
+      tag: Docker
+    - item_id: 74eacdbf363e260981c3 # https://qiita.com/items/74eacdbf363e260981c3
+      tag: Git
+    - item_id: 49d4537d95f878b3e91a # https://qiita.com/items/49d4537d95f878b3e91a
+      tag: Go
+    - item_id: e61a29a383d0403e92fc # https://qiita.com/items/e61a29a383d0403e92fc
+      tag: iOS
+    - item_id: 4c3f84836bfdbb137226 # https://qiita.com/items/4c3f84836bfdbb137226
+      tag: Java
+    - item_id: eaa7ac5b62a0a723edbb # https://qiita.com/items/eaa7ac5b62a0a723edbb
+      tag: JavaScript
+    - item_id: 362e81e53c3f9dee22f1 # https://qiita.com/items/362e81e53c3f9dee22f1
+      tag: Linux
+    - item_id: 66ed7ad8f7c9673e9d50 # https://qiita.com/items/66ed7ad8f7c9673e9d50
+      tag: Node.js
+    - item_id: 3318cbdbc45c6ebd4014 # https://qiita.com/items/3318cbdbc45c6ebd4014
+      tag: PHP
+    - item_id: 9d7f2ffeafb36cf59a77 # https://qiita.com/items/9d7f2ffeafb36cf59a77
+      tag: Python
+    - item_id: 93b9e7f7d143e9ce650e # https://qiita.com/items/93b9e7f7d143e9ce650e
+      tag: Rails
+    - item_id: f9712f8acace22815b99 # https://qiita.com/items/f9712f8acace22815b99
+      tag: React
+    - item_id: 72c3d2e896bdc3e1a6b3 # https://qiita.com/items/72c3d2e896bdc3e1a6b3
+      tag: Ruby
+    - item_id: e2b6f0645e29f0e2b761 # https://qiita.com/items/e2b6f0645e29f0e2b761
+      tag: Swift
+    - item_id: 25b7c0870afa6d41d19b # https://qiita.com/items/25b7c0870afa6d41d19b
+      tag: TypeScript
+    - item_id: f5361177baef95e447d1 # https://qiita.com/items/f5361177baef95e447d1
+      tag: Vim
+    - item_id: 2774e02c6eea5c830d99 # https://qiita.com/items/2774e02c6eea5c830d99
+      tag: Vue.js

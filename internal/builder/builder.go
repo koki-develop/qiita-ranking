@@ -26,9 +26,16 @@ func New() *Builder {
 type BuildParameters struct {
 	Template   Template
 	Tags       config.ConfigItems
-	Conditions map[string]string
+	Conditions Conditions
 	Items      qiita.Items
 }
+
+type Condition struct {
+	Key   string
+	Value string
+}
+
+type Conditions []*Condition
 
 func (b *Builder) Build(params *BuildParameters) ([]byte, error) {
 	filename := fmt.Sprintf("%s.md", params.Template)

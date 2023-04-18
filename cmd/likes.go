@@ -37,9 +37,9 @@ var likesDailyCmd = &cobra.Command{
 		body, err := b.Build(&builder.BuildParameters{
 			Template: builder.TemplateLikesDaily,
 			Tags:     cfg.Likes.DailyByTag,
-			Conditions: map[string]string{
-				"集計期間": fmt.Sprintf("%s ~ %s", from.Format(time.DateOnly), to.Format(time.DateOnly)),
-				"条件":   "ストック数が **2** 以上の記事",
+			Conditions: builder.Conditions{
+				{Key: "集計期間", Value: fmt.Sprintf("%s ~ %s", from.Format(time.DateOnly), to.Format(time.DateOnly))},
+				{Key: "条件", Value: "ストック数が **2** 以上の記事"},
 			},
 			Items: items,
 		})
@@ -82,9 +82,9 @@ var likesWeeklyCmd = &cobra.Command{
 		body, err := b.Build(&builder.BuildParameters{
 			Template: builder.TemplateLikesWeekly,
 			Tags:     cfg.Likes.WeeklyByTag,
-			Conditions: map[string]string{
-				"集計期間": fmt.Sprintf("%s ~ %s", from.Format(time.DateOnly), to.Format(time.DateOnly)),
-				"条件":   "ストック数が **10** 以上の記事",
+			Conditions: builder.Conditions{
+				{Key: "集計期間", Value: fmt.Sprintf("%s ~ %s", from.Format(time.DateOnly), to.Format(time.DateOnly))},
+				{Key: "条件", Value: "ストック数が **10** 以上の記事"},
 			},
 			Items: items,
 		})

@@ -1,5 +1,5 @@
 {{ define "conditions" -}}
-{{ range $key, $value := . -}}
-- {{ $key }}: {{ $value }}
+{{ range . -}}
+- {{ .Key }}: {{ .Value }}
 {{ end }}
 {{- end }}

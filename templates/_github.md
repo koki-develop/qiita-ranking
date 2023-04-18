@@ -1,5 +1,5 @@
 {{ define "github" -}}
-https://github.com/koki-develop/qiita-lgtm-ranking
+https://github.com/koki-develop/qiita-ranking
 
 スターをもらえるととっても励みになります :bow:
 {{- end }}

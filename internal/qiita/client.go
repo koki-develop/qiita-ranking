@@ -35,7 +35,7 @@ func (cl *Client) newRequest(method, pathname string, q, body interface{}) (*htt
 		}
 		u.RawQuery = v.Encode()
 	}
-	fmt.Printf("url: %s\n", u.String())
+	fmt.Printf("%s: %s\n", method, u.String())
 
 	var p io.Reader = nil
 	if body != nil {

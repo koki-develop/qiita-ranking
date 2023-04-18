@@ -1,6 +1,7 @@
 package qiita
 
 import (
+	"fmt"
 	"net/http"
 )
 
@@ -40,4 +41,23 @@ func (cl *Client) ListItemsWithPagination(query string) (Items, error) {
 	}
 
 	return rtn, nil
+}
+
+type UpdateItemParameters struct {
+	Title string `json:"title"`
+	Body  string `json:"body"`
+	Tags  Tags   `json:"tags"`
+}
+
+func (cl *Client) UpdateItem(id string, params *UpdateItemParameters) error {
+	req, err := cl.newRequest(http.MethodPatch, fmt.Sprintf("items/%s", id), nil, params)
+	if err != nil {
+		return err
+	}
+
+	if err := cl.doRequest(req, nil); err != nil {
+		return err
+	}
+
+	return nil
 }

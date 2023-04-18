@@ -13,7 +13,8 @@ import (
 type Template string
 
 const (
-	TemplateLikesDaily Template = "likes_daily"
+	TemplateLikesDaily  Template = "likes_daily"
+	TemplateLikesWeekly Template = "likes_weekly"
 )
 
 type Builder struct{}

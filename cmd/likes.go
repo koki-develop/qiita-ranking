@@ -22,6 +22,11 @@ var likesDailyCmd = &cobra.Command{
 			return err
 		}
 
+		stocks := 2
+		if flagTag != "" {
+			stocks = 0
+		}
+
 		return update(&updateParameters{
 			Config:   cfg,
 			Title:    "Qiita デイリーいいね数ランキング【自動更新】",
@@ -29,7 +34,8 @@ var likesDailyCmd = &cobra.Command{
 			Item:     cfg.Likes.Daily,
 			Tags:     cfg.Likes.DailyByTag,
 			From:     time.Now().AddDate(0, 0, -1),
-			Stocks:   2,
+			Stocks:   stocks,
+			Tag:      flagTag,
 		})
 	},
 }
@@ -44,6 +50,11 @@ var likesWeeklyCmd = &cobra.Command{
 			return err
 		}
 
+		stocks := 10
+		if flagTag != "" {
+			stocks = 2
+		}
+
 		return update(&updateParameters{
 			Config:   cfg,
 			Title:    "Qiita 週間いいね数ランキング【自動更新】",
@@ -51,7 +62,8 @@ var likesWeeklyCmd = &cobra.Command{
 			Item:     cfg.Likes.Weekly,
 			Tags:     cfg.Likes.WeeklyByTag,
 			From:     time.Now().AddDate(0, 0, -7),
-			Stocks:   10,
+			Stocks:   stocks,
+			Tag:      flagTag,
 		})
 	},
 }

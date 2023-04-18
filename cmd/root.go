@@ -37,7 +37,25 @@ type updateParameters struct {
 	Tag      string
 }
 
+func (params *updateParameters) applyTag() error {
+	if params.Tag == "" {
+		return nil
+	}
+
+	params.Title = fmt.Sprintf("【%s】%s", params.Tag, params.Title)
+	i, ok := params.Tags.Get(params.Tag)
+	if !ok {
+		return fmt.Errorf("unknown tag: %s", params.Tag)
+	}
+	params.Item = i
+	return nil
+}
+
 func update(params *updateParameters) error {
+	if err := params.applyTag(); err != nil {
+		return err
+	}
+
 	cl := qiita.New(params.Config.QiitaAccessToken)
 	query := []string{fmt.Sprintf("created:>=%s", params.From.Format(time.DateOnly))}
 	if params.Tag != "" {

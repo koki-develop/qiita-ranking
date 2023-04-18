@@ -1,6 +1,6 @@
 # タグ別
 
-{{ template "tags" .ConfigItems }}
+{{ template "tags" .Tags }}
 
 # 集計について
 

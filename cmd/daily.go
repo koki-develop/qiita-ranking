@@ -29,8 +29,8 @@ var dailyCmd = &cobra.Command{
 
 		b := builder.New()
 		body, err := b.Build(&builder.BuildParameters{
-			Template:    builder.TemplateLikesDaily,
-			ConfigItems: cfg.Likes.DailyByTag,
+			Template: builder.TemplateLikesDaily,
+			Tags:     cfg.Likes.DailyByTag,
 			Conditions: map[string]string{
 				"集計期間": fmt.Sprintf("%s ~ %s", from.Format(time.DateOnly), to.Format(time.DateOnly)),
 				"条件":   "ストック数が **2** 以上の記事",

@@ -23,10 +23,10 @@ func New() *Builder {
 }
 
 type BuildParameters struct {
-	Template    Template
-	ConfigItems config.ConfigItems
-	Conditions  map[string]string
-	Items       qiita.Items
+	Template   Template
+	Tags       config.ConfigItems
+	Conditions map[string]string
+	Items      qiita.Items
 }
 
 func (b *Builder) Build(params *BuildParameters) ([]byte, error) {

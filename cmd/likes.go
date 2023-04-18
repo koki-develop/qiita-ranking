@@ -13,7 +13,6 @@ var likesCmd = &cobra.Command{
 }
 
 // デイリーいいね数ランキング
-// https://qiita.com/koki_develop/items/fa223e1fa0ab057a54bc
 var likesDailyCmd = &cobra.Command{
 	Use: "daily",
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -41,7 +40,6 @@ var likesDailyCmd = &cobra.Command{
 }
 
 // 週間いいね数ランキング
-// https://qiita.com/koki_develop/items/b6cfc81906990b3a3e72
 var likesWeeklyCmd = &cobra.Command{
 	Use: "weekly",
 	RunE: func(cmd *cobra.Command, args []string) error {

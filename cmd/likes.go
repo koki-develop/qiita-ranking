@@ -1,12 +1,10 @@
 package cmd
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/koki-develop/qiita-ranking/internal/builder"
 	"github.com/koki-develop/qiita-ranking/internal/config"
-	"github.com/koki-develop/qiita-ranking/internal/qiita"
 	"github.com/spf13/cobra"
 )
 
@@ -24,38 +22,15 @@ var likesDailyCmd = &cobra.Command{
 			return err
 		}
 
-		cl := qiita.New(cfg.QiitaAccessToken)
-		to := time.Now()
-		from := to.AddDate(0, 0, -1)
-		query := fmt.Sprintf("created:>=%s stocks:>=2", from.Format(time.DateOnly))
-		items, err := cl.ListItemsWithPagination(query)
-		if err != nil {
-			return err
-		}
-
-		b := builder.New()
-		body, err := b.Build(&builder.BuildParameters{
+		return update(&updateParameters{
+			Config:   cfg,
+			Title:    "Qiita デイリーいいね数ランキング【自動更新】",
 			Template: builder.TemplateLikesDaily,
+			Item:     cfg.Likes.Daily,
 			Tags:     cfg.Likes.DailyByTag,
-			Conditions: builder.Conditions{
-				{Key: "集計期間", Value: fmt.Sprintf("%s ~ %s", from.Format(time.DateOnly), to.Format(time.DateOnly))},
-				{Key: "条件", Value: "ストック数が **2** 以上の記事"},
-			},
-			Items: items,
+			From:     time.Now().AddDate(0, 0, -1),
+			Stocks:   2,
 		})
-		if err != nil {
-			return err
-		}
-
-		params := &qiita.UpdateItemParameters{
-			Title: "Qiita デイリーいいね数ランキング【自動更新】",
-			Tags:  qiita.Tags{{Name: "Qiita"}, {Name: "いいね"}, {Name: "lgtm"}, {Name: "ランキング"}},
-			Body:  string(body),
-		}
-		if err := cl.UpdateItem(cfg.Likes.Daily.ItemID, params); err != nil {
-			return err
-		}
-		return nil
 	},
 }
 
@@ -69,37 +44,14 @@ var likesWeeklyCmd = &cobra.Command{
 			return err
 		}
 
-		cl := qiita.New(cfg.QiitaAccessToken)
-		to := time.Now()
-		from := to.AddDate(0, 0, -7)
-		query := fmt.Sprintf("created:>=%s stocks:>=10", from.Format(time.DateOnly))
-		items, err := cl.ListItemsWithPagination(query)
-		if err != nil {
-			return err
-		}
-
-		b := builder.New()
-		body, err := b.Build(&builder.BuildParameters{
+		return update(&updateParameters{
+			Config:   cfg,
+			Title:    "Qiita 週間いいね数ランキング【自動更新】",
 			Template: builder.TemplateLikesWeekly,
+			Item:     cfg.Likes.Weekly,
 			Tags:     cfg.Likes.WeeklyByTag,
-			Conditions: builder.Conditions{
-				{Key: "集計期間", Value: fmt.Sprintf("%s ~ %s", from.Format(time.DateOnly), to.Format(time.DateOnly))},
-				{Key: "条件", Value: "ストック数が **10** 以上の記事"},
-			},
-			Items: items,
+			From:     time.Now().AddDate(0, 0, -7),
+			Stocks:   10,
 		})
-		if err != nil {
-			return err
-		}
-
-		params := &qiita.UpdateItemParameters{
-			Title: "Qiita 週間いいね数ランキング【自動更新】",
-			Tags:  qiita.Tags{{Name: "Qiita"}, {Name: "いいね"}, {Name: "lgtm"}, {Name: "ランキング"}},
-			Body:  string(body),
-		}
-		if err := cl.UpdateItem(cfg.Likes.Weekly.ItemID, params); err != nil {
-			return err
-		}
-		return nil
 	},
 }

@@ -1,4 +1,4 @@
-name: likes weekly
+name: cli
 
 on:
   workflow_dispatch:

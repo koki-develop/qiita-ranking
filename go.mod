@@ -1,6 +1,6 @@
 module github.com/koki-develop/qiita-ranking
 
-go 1.20
+go 1.27.1
 
 require (
 	github.com/caarlos0/env/v8 v8.0.0

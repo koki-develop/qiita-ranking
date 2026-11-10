@@ -1,8 +1,9 @@
 module github.com/koki-develop/qiita-ranking
 
-go 1.20
+go 1.26.0
 
 require (
+	github.com/caarlos0/env/v11 v11.4.2
 	github.com/caarlos0/env/v8 v8.0.0
 	github.com/google/go-querystring v1.1.0
 	github.com/spf13/cobra v1.7.0
